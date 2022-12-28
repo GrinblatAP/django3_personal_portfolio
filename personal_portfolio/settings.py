@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ""
+SECRET_KEY = "django-insecure-8+vsb0f455y0+31%9k_=cxy62-*h28$!9m@jz6uhcz-8k=4+g*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["unisher.pythonanywhere.com"]
 
@@ -127,3 +127,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / 'media'
 
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file. You must be on production")
